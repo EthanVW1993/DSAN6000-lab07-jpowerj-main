@@ -1,0 +1,201 @@
+2026-09-19 18:08:21,909,p28413,{nyc_tlc_problem1_cluster.py:231},INFO,Starting Problem 1: Daily Summaries of Key Metrics (Cluster Mode)
+2026-09-19 18:08:21,910,p28413,{nyc_tlc_problem1_cluster.py:252},INFO,Using Spark master URL: spark://172.31.35.248:7077
+2026-09-19 18:08:21,910,p28413,{nyc_tlc_problem1_cluster.py:257},INFO,Initializing Spark session for cluster execution
+:: loading settings :: url = jar:file:/home/ubuntu/dsan6000/lab7/.venv/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /home/ubuntu/.ivy2/cache
+The jars for the packages stored in: /home/ubuntu/.ivy2/jars
+org.apache.hadoop#hadoop-aws added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-f79d183c-2e81-4473-9098-6a79471bb485;1.0
+	confs: [default]
+	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+:: resolution report :: resolve 388ms :: artifacts dl 20ms
+	:: modules in use:
+	com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-f79d183c-2e81-4473-9098-6a79471bb485
+	confs: [default]
+	0 artifacts copied, 3 already retrieved (0kB/9ms)
+26/09/19 18:08:25 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:67},INFO,Spark session created successfully for cluster execution
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:263},INFO,Preparing S3 paths for 12 months of data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:74},INFO,Preparing S3 paths for 12 months of NYC TLC data
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 01: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-01.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 02: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-02.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 03: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-03.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 04: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-04.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 05: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-05.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 06: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-06.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 07: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-07.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 08: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-08.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 09: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-09.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 10: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-10.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 11: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-11.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:85},INFO,Added S3 path for month 12: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-12.parquet
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:87},INFO,Prepared 12 S3 paths for direct reading
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:274},INFO,Starting Problem 1 analysis with S3 data files
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:109},INFO,Starting Problem 1: Daily Summaries of Key Metrics
+2026-09-19 18:08:28,121,p28413,{nyc_tlc_problem1_cluster.py:116},INFO,Reading 12 parquet files into single DataFrame
+26/09/19 18:08:29 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 5][Stage 1:===========>                                               (1 + 4) / 5][Stage 1:=======================>                                   (2 + 3) / 5][Stage 1:===================================>                       (3 + 2) / 5]                                                                                2026-09-19 18:08:48,218,p28413,{nyc_tlc_problem1_cluster.py:121},INFO,Successfully loaded 30,904,308 total rows from 12 files
+2026-09-19 18:08:48,219,p28413,{nyc_tlc_problem1_cluster.py:125},INFO,Step 1: Deriving date columns from tpep_pickup_datetime
+2026-09-19 18:08:48,462,p28413,{nyc_tlc_problem1_cluster.py:134},INFO,Step 2: Filtering data for year 2021
+[Stage 4:>                                                          (0 + 4) / 5][Stage 4:===========>                                               (1 + 4) / 5][Stage 4:=======================>                                   (2 + 3) / 5][Stage 4:===================================>                       (3 + 2) / 5][Stage 4:===============================================>           (4 + 1) / 5]                                                                                2026-09-19 18:08:54,901,p28413,{nyc_tlc_problem1_cluster.py:138},INFO,Filtered dataset to 30,903,934 rows for year 2021
+2026-09-19 18:08:54,902,p28413,{nyc_tlc_problem1_cluster.py:142},INFO,Step 3: Calculating daily summaries with aggregations
+2026-09-19 18:08:55,105,p28413,{nyc_tlc_problem1_cluster.py:157},INFO,Step 4: Sorting results by date in descending order
+2026-09-19 18:08:55,142,p28413,{nyc_tlc_problem1_cluster.py:165},INFO,Step 5: Displaying results
+[Stage 7:>                                                          (0 + 4) / 5][Stage 7:===========>                                               (1 + 4) / 5][Stage 7:=======================>                                   (2 + 3) / 5][Stage 7:===================================>                       (3 + 2) / 5][Stage 7:===============================================>           (4 + 1) / 5][Stage 9:>                                                          (0 + 4) / 4][Stage 9:=============================>                             (2 + 2) / 4]                                                                                [Stage 10:>                                                         (0 + 4) / 5][Stage 10:=======================>                                  (2 + 3) / 5][Stage 10:==================================>                       (3 + 2) / 5][Stage 10:==============================================>           (4 + 1) / 5]                                                                                2026-09-19 18:09:31,310,p28413,{nyc_tlc_problem1_cluster.py:172},INFO,Calculated summaries for 365 days
+2026-09-19 18:09:31,310,p28413,{nyc_tlc_problem1_cluster.py:176},INFO,Step 6: Converting Spark DataFrame to Pandas DataFrame
+[Stage 16:>                                                         (0 + 4) / 5][Stage 16:===========>                                              (1 + 4) / 5][Stage 16:=======================>                                  (2 + 3) / 5][Stage 16:==================================>                       (3 + 2) / 5][Stage 16:==============================================>           (4 + 1) / 5][Stage 18:>                                                         (0 + 4) / 4]                                                                                [Stage 20:>                                                         (0 + 4) / 4][Stage 20:==============>                                           (1 + 3) / 4]                                                                                2026-09-19 18:09:54,747,p28413,{nyc_tlc_problem1_cluster.py:184},INFO,Step 7: Saving results to daily_averages_cluster.csv
+2026-09-19 18:09:54,755,p28413,{nyc_tlc_problem1_cluster.py:191},INFO,Problem 1 execution completed in 86.63 seconds
+2026-09-19 18:09:54,757,p28413,{nyc_tlc_problem1_cluster.py:277},INFO,Problem 1 analysis completed successfully
+2026-09-19 18:09:54,757,p28413,{nyc_tlc_problem1_cluster.py:284},INFO,Stopping Spark session
+2026-09-19 18:09:55,034,p28413,{nyc_tlc_problem1_cluster.py:290},INFO,Total execution time: 93.12 seconds
+======================================================================
+PROBLEM 1: Daily Summaries of Key Metrics (CLUSTER MODE)
+NYC Taxi Trip Data Analysis (January-December 2021)
+======================================================================
+Connecting to Spark Master at: spark://172.31.35.248:7077
+
+Preparing to read 12 months of NYC TLC data from S3...
+============================================================
+  Month 01/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-01.parquet
+  Month 02/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-02.parquet
+  Month 03/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-03.parquet
+  Month 04/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-04.parquet
+  Month 05/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-05.parquet
+  Month 06/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-06.parquet
+  Month 07/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-07.parquet
+  Month 08/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-08.parquet
+  Month 09/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-09.parquet
+  Month 10/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-10.parquet
+  Month 11/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-11.parquet
+  Month 12/2021: s3a://bigdatateaching/nyc_tlc/trip_data/yyyy=2021/yellow_tripdata_2021-12.parquet
+
+✅ Prepared 12 S3 paths - will read directly from S3
+
+Solving Problem 1: Daily Summaries of Key Metrics
+============================================================
+Reading all data files into a single DataFrame...
+✅ Loaded 30,904,308 total rows from 12 files
+
+Step 1: Deriving date columns from tpep_pickup_datetime...
+Step 2: Filtering data for year 2021...
+✅ Filtered to 30,903,934 rows for year 2021
+Step 3: Calculating daily summaries...
+Step 4: Sorting by date (descending)...
+
+Step 5: Displaying results...
+
+Top 20 daily summaries (sorted in descending order):
++-------+--------+------+---------+------------------+-----------+---------------+--------------+--------------------+
+|dt_year|dt_month|dt_day|num_trips|mean_trip_distance|max_mta_tax|q95_fare_amount|min_tip_amount|mean_passenger_count|
++-------+--------+------+---------+------------------+-----------+---------------+--------------+--------------------+
+|   2021|      12|    31|    70402| 7.649364932814431|        3.3|           50.0|          -3.5|                   2|
+|   2021|      12|    30|    77968| 6.510600246254899|        0.5|           52.0|          -4.0|                   2|
+|   2021|      12|    29|    74989| 3.681427809412042|        0.5|           52.0|         -2.36|                   2|
+|   2021|      12|    28|    75037|3.7234584271759075|        3.3|           52.0|         -0.82|                   2|
+|   2021|      12|    27|    69897| 5.177865859765096|        0.5|           52.0|         -1.16|                   2|
+|   2021|      12|    26|    54705| 7.054452426652071|        0.5|           52.0|          -3.0|                   2|
+|   2021|      12|    25|    40807|13.944280148013833|        0.5|           52.0|         -0.01|                   2|
+|   2021|      12|    24|    69619| 9.110751949898745|        3.0|           45.0|         -0.66|                   2|
+|   2021|      12|    23|    87850| 8.421516448491717|        2.8|           51.5|         -8.67|                   2|
+|   2021|      12|    22|    91699| 6.790766202466759|        0.5|           48.5|         -15.8|                   2|
+|   2021|      12|    21|    93095|  9.85240206240941|       0.55|           48.2|         -2.36|                   2|
+|   2021|      12|    20|    94213|10.213103711801924|        0.5|           52.0|         -1.66|                   2|
+|   2021|      12|    19|    91202| 9.016265432775638|        0.5|           52.0|         -3.71|                   2|
+|   2021|      12|    18|   110282| 6.145036724034756|        0.5|           43.0|         -1.95|                   2|
+|   2021|      12|    17|   124147| 4.298876493189515|       0.55|           49.2|          -8.0|                   2|
+|   2021|      12|    16|   126270| 5.083376336421953|        3.3|           45.0|         -0.82|                   2|
+|   2021|      12|    15|   125053| 7.843675881426283|        0.5|           41.2|         -1.95|                   2|
+|   2021|      12|    14|   120218| 8.472384002395618|        0.5|           41.0|         -16.0|                   2|
+|   2021|      12|    13|   111299| 4.289563248546735|        3.3|           50.0|         -1.16|                   2|
+|   2021|      12|    12|   107167|6.2288641092873425|        3.3|           52.0|        -83.27|                   2|
++-------+--------+------+---------+------------------+-----------+---------------+--------------+--------------------+
+only showing top 20 rows
+
+
+✅ Calculated summaries for 365 days
+
+Step 6: Converting to Pandas DataFrame...
+Step 7: ✅ Results saved to daily_averages_cluster.csv
+
+============================================================
+PROBLEM 1 COMPLETED - Summary Statistics
+============================================================
+Total rows processed: 30,903,934
+Days with data: 365
+Date range: 01/01/2021 to 12/31/2021
+Total trips: 30,903,934
+Average daily trips: 84668
+Execution time: 86.63 seconds
+
+============================================================
+Sample Results (first 5 rows):
+============================================================
+Note: Full results saved to daily_averages_cluster.csv
+Year: 2021, Month: 12, Day: 31
+  Trips: 70,402
+  Avg Distance: 7.65 miles
+  Max MTA Tax: $3.30
+  95th Percentile Fare: $50.00
+  Min Tip: $-3.50
+  Avg Passengers: 2
+----------------------------------------
+Year: 2021, Month: 12, Day: 30
+  Trips: 77,968
+  Avg Distance: 6.51 miles
+  Max MTA Tax: $0.50
+  95th Percentile Fare: $52.00
+  Min Tip: $-4.00
+  Avg Passengers: 2
+----------------------------------------
+Year: 2021, Month: 12, Day: 29
+  Trips: 74,989
+  Avg Distance: 3.68 miles
+  Max MTA Tax: $0.50
+  95th Percentile Fare: $52.00
+  Min Tip: $-2.36
+  Avg Passengers: 2
+----------------------------------------
+Year: 2021, Month: 12, Day: 28
+  Trips: 75,037
+  Avg Distance: 3.72 miles
+  Max MTA Tax: $3.30
+  95th Percentile Fare: $52.00
+  Min Tip: $-0.82
+  Avg Passengers: 2
+----------------------------------------
+Year: 2021, Month: 12, Day: 27
+  Trips: 69,897
+  Avg Distance: 5.18 miles
+  Max MTA Tax: $0.50
+  95th Percentile Fare: $52.00
+  Min Tip: $-1.16
+  Avg Passengers: 2
+----------------------------------------
+
+======================================================================
+✅ PROBLEM 1 COMPLETED SUCCESSFULLY!
+
+Total execution time: 93.12 seconds
+
+Files created:
+  - daily_averages_cluster.csv (Problem 1 solution)
+
+Next steps:
+  1. Check daily_averages_cluster.csv for the complete results
+  2. Verify the output matches the expected format
+  3. Submit daily_averages_cluster.csv as part of your solution
+======================================================================
+2026-09-19 18:09:55,034,p28413,{clientserver.py:543},INFO,Closing down clientserver connection
