@@ -1,3 +1,9 @@
 
 spark-cluster-key.pem
 .venv/
+
+# Never commit SSH private keys
+*.pem
+
+# Downloaded input datasets
+cluster-files/data/
